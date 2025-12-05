@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <!-- Homepage -->
+  <url>
+    <loc>https://zididigitals.com/</loc>
+    <lastmod>2025-10-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://zididigitals.com/logo.jpeg</image:loc>
+      <image:title>Zidi Digital Solutions Logo – Founded by Divyesh Bondapalli | Digital Marketing India</image:title>
+      <image:caption>Zidi Digital Solutions – India's leading digital agency offering marketing, web development, internships, and consultancy services.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- About Page -->
+  <url>
+    <loc>https://zididigitals.com/about</loc>
+    <lastmod>2025-10-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://zididigitals.com/divyesh-bondapalli.jpg</image:loc>
+      <image:title>Divyesh Bondapalli – Founder & CEO of Zidi Digital Solutions | Young Entrepreneur India</image:title>
+      <image:caption>Divyesh Bondapalli, young entrepreneur and founder of Zidi Digital Solutions, leading digital innovation in India.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Services Page -->
+  <url>
+    <loc>https://zididigitals.com/services</loc>
+    <lastmod>2025-10-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://zididigitals.com/logo.jpeg</image:loc>
+      <image:title>Digital Services by Zidi Digital Solutions | Web Development, Marketing, Internships</image:title>
+      <image:caption>Comprehensive digital services including product development, web development, digital marketing, internships, and business consultancy.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Contact Page -->
+  <url>
+    <loc>https://zididigitals.com/contact</loc>
+    <lastmod>2025-10-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://zididigitals.com/logo.jpeg</image:loc>
+      <image:title>Contact Zidi Digital Solutions | Get Free Consultation from Divyesh Bondapalli</image:title>
+      <image:caption>Get in touch with Zidi Digital Solutions for expert digital services and free business consultation.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Internship Page -->
+  <url>
+    <loc>https://zididigitals.com/internship</loc>
+    <lastmod>2025-10-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://zididigitals.com/logo.jpeg</image:loc>
+      <image:title>Digital Marketing Internships in India | Web Development Training by Zidi Digital Solutions</image:title>
+      <image:caption>Join Zidi Digital Solutions internship programs for hands-on digital marketing, web development, and tech training.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Consultancy Page -->
+  <url>
+    <loc>https://zididigitals.com/consultancy</loc>
+    <lastmod>2025-10-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://zididigitals.com/logo.jpeg</image:loc>
+      <image:title>Business Consultancy Services in India | Digital Transformation by Divyesh Bondapalli</image:title>
+      <image:caption>Expert business consultancy services by Zidi Digital Solutions for digital transformation and startup growth.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- SEO-friendly URLs for better ranking -->
+  <url>
+    <loc>https://zididigitals.com/about-divyesh-bondapalli</loc>
+    <lastmod>2025-10-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://zididigitals.com/services/digital-marketing</loc>
+    <lastmod>2025-10-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://zididigitals.com/services/web-development</loc>
+    <lastmod>2025-10-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://zididigitals.com/services/business-consultancy</loc>
+    <lastmod>2025-10-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://zididigitals.com/internships/digital-marketing</loc>
+    <lastmod>2025-10-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://zididigitals.com/internships/web-development</loc>
+    <lastmod>2025-10-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+</urlset>

@@ -1,0 +1,265 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Professional Corporate Design System
+All colors MUST be HSL for consistency and theming support.
+*/
+
+@layer base {
+  :root {
+    /* Base colors for clean, professional look */
+    --background: 0 0% 99%;
+    --foreground: 215 25% 15%;
+
+    /* Card and surface colors */
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 15%;
+
+    /* Professional brand colors */
+    --primary: 215 90% 50%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 215 90% 60%;
+    --primary-dark: 215 90% 40%;
+
+    --secondary: 215 15% 95%;
+    --secondary-foreground: 215 25% 25%;
+
+    --muted: 215 15% 96%;
+    --muted-foreground: 215 12% 45%;
+
+    --accent: 280 85% 60%;
+    --accent-foreground: 0 0% 100%;
+    --accent-light: 280 85% 70%;
+
+    /* Success and neutral colors */
+    --success: 155 65% 45%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 45 95% 55%;
+    --warning-foreground: 215 25% 15%;
+
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Border and input colors */
+    --border: 215 20% 88%;
+    --input: 215 20% 88%;
+    --ring: 215 90% 50%;
+
+    /* Layout */
+    --radius: 8px;
+
+    /* Gradients for professional look */
+    --gradient-primary: linear-gradient(135deg, hsl(215 90% 50%) 0%, hsl(280 85% 60%) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(215 15% 98%) 0%, hsl(215 15% 95%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(215 90% 50% / 0.05) 0%, hsl(280 85% 60% / 0.05) 100%);
+
+    /* Shadows for depth */
+    --shadow-sm: 0 1px 3px hsl(215 25% 15% / 0.08);
+    --shadow-md: 0 4px 12px hsl(215 25% 15% / 0.12);
+    --shadow-lg: 0 8px 25px hsl(215 25% 15% / 0.15);
+    --shadow-primary: 0 8px 25px hsl(215 90% 50% / 0.2);
+
+    /* Sidebar */
+    --sidebar-background: 0 0% 99%;
+    --sidebar-foreground: 215 25% 25%;
+    --sidebar-primary: 215 90% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 215 15% 96%;
+    --sidebar-accent-foreground: 215 25% 25%;
+    --sidebar-border: 215 20% 90%;
+    --sidebar-ring: 215 90% 50%;
+  }
+
+  .dark {
+    /* Dark theme for professional night mode */
+    --background: 215 30% 8%;
+    --foreground: 0 0% 95%;
+
+    --card: 215 30% 10%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 215 30% 10%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 215 90% 55%;
+    --primary-foreground: 215 30% 8%;
+    --primary-light: 215 90% 65%;
+    --primary-dark: 215 90% 45%;
+
+    --secondary: 215 25% 15%;
+    --secondary-foreground: 0 0% 90%;
+
+    --muted: 215 25% 12%;
+    --muted-foreground: 215 10% 65%;
+
+    --accent: 280 85% 65%;
+    --accent-foreground: 215 30% 8%;
+    --accent-light: 280 85% 75%;
+
+    --success: 155 65% 50%;
+    --success-foreground: 215 30% 8%;
+
+    --warning: 45 95% 60%;
+    --warning-foreground: 215 30% 8%;
+
+    --destructive: 0 75% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 215 25% 18%;
+    --input: 215 25% 18%;
+    --ring: 215 90% 55%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(215 90% 55%) 0%, hsl(280 85% 65%) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(215 25% 12%) 0%, hsl(215 25% 15%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(215 90% 55% / 0.1) 0%, hsl(280 85% 65% / 0.1) 100%);
+
+    --shadow-sm: 0 1px 3px hsl(0 0% 0% / 0.2);
+    --shadow-md: 0 4px 12px hsl(0 0% 0% / 0.25);
+    --shadow-lg: 0 8px 25px hsl(0 0% 0% / 0.3);
+    --shadow-primary: 0 8px 25px hsl(215 90% 55% / 0.3);
+
+    --sidebar-background: 215 30% 8%;
+    --sidebar-foreground: 0 0% 90%;
+    --sidebar-primary: 215 90% 55%;
+    --sidebar-primary-foreground: 215 30% 8%;
+    --sidebar-accent: 215 25% 15%;
+    --sidebar-accent-foreground: 0 0% 90%;
+    --sidebar-border: 215 25% 18%;
+    --sidebar-ring: 215 90% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground scroll-smooth;
+  }
+}
+
+@layer utilities {
+  /* Animation classes */
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+    opacity: 0;
+  }
+
+  .animate-slide-down {
+    animation: slideDown 0.3s ease-out forwards;
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  .animate-gradient-flow {
+    animation: gradientFlow 3s ease-in-out infinite;
+  }
+
+  .bg-size-200 {
+    background-size: 200% 200%;
+  }
+
+  .bg-pos-0 {
+    background-position: 0% 50%;
+  }
+
+  .bg-pos-100 {
+    background-position: 100% 50%;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-scale-up {
+    animation: scaleUp 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    transform: scale(0.9);
+    opacity: 0;
+  }
+
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+
+  .delay-100 { 
+    transition-delay: 100ms; 
+  }
+
+  .delay-200 { 
+    transition-delay: 200ms; 
+  }
+
+  .delay-300 { 
+    transition-delay: 300ms; 
+  }
+
+  .delay-400 { 
+    transition-delay: 400ms; 
+  }
+}
+
+@layer keyframes {
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes gradientFlow {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  @keyframes float {
+    0%, 100% { 
+      transform: translateY(0px); 
+    }
+    50% { 
+      transform: translateY(-20px); 
+    }
+  }
+
+  @keyframes scaleUp {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+}

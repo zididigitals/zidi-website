@@ -1,0 +1,80 @@
+User-agent: *
+Allow: /
+
+# Prioritize important pages
+Allow: /about
+Allow: /services
+Allow: /contact
+Allow: /internship
+Allow: /consultancy
+
+# Allow SEO-friendly URLs
+Allow: /about-divyesh-bondapalli
+Allow: /services/digital-marketing
+Allow: /services/web-development
+Allow: /services/business-consultancy
+Allow: /internships/digital-marketing
+Allow: /internships/web-development
+
+# Allow images for better image search ranking
+Allow: /*.jpeg
+Allow: /*.jpg
+Allow: /*.png
+Allow: /*.svg
+Allow: /*.webp
+
+# Block unnecessary files
+Disallow: /src/
+Disallow: /node_modules/
+Disallow: /*.tsx$
+Disallow: /*.ts$
+Disallow: /*.js$
+Disallow: /*.json$
+Disallow: /dist/
+Disallow: /.git/
+Disallow: /*.lockb
+
+# Block admin and private areas (if any)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /_next/
+Disallow: /api/
+
+# Sitemap location
+Sitemap: https://zididigitals.com/sitemap.xml
+
+# Crawl delay to be respectful to server resources
+Crawl-delay: 1
+
+# Specific instructions for major search engines
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 1
+
+# Allow social media crawlers for better sharing
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+# Block unwanted bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
