@@ -12,7 +12,7 @@ const projects = [
     services: ["Web Design", "Digital Marketing", "UI/UX Development"],
     icon: Globe,
     color: "from-blue-500 to-cyan-500",
-    logo: "/src/media/projects/pixel.jpg",
+    logo: "/media/projects/pixel.jpg",
     highlights: [
       "Responsive Design",
       "SEO Optimized",
@@ -26,7 +26,7 @@ const projects = [
     services: ["Web Design", "Digital Marketing", "Brand Strategy"],
     icon: Megaphone,
     color: "from-purple-500 to-pink-500",
-    logo: "/src/media/projects/collabo.jpg",
+    logo: "/media/projects/collabo.jpg",
     highlights: [
       "User-Centric Design",
       "Marketing Campaign",
@@ -40,7 +40,7 @@ const projects = [
     services: ["Web Design", "Digital Marketing", "User Experience"],
     icon: Globe,
     color: "from-green-500 to-emerald-500",
-    logo: "/src/media/projects/visa now.jpg",
+    logo: "/media/projects/visa now.jpg",
     highlights: [
       "Multi-language Support",
       "Conversion Optimized",
@@ -54,7 +54,7 @@ const projects = [
     services: ["Web Design", "Digital Marketing", "Corporate Branding"],
     icon: Globe,
     color: "from-orange-500 to-red-500",
-    logo: "/src/media/projects/ramky.jpg",
+    logo: "/media/projects/ramky.jpg",
     highlights: [
       "Enterprise Grade",
       "Portfolio Showcase",

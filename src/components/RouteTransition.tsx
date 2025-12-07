@@ -41,7 +41,7 @@ const RouteTransition = ({ children }: RouteTransitionProps) => {
                 playsInline
                 className="h-screen w-auto object-contain"
               >
-                <source src="/src/media/WhatsApp Video 2025-10-29 at 7.24.14 PM.mp4" type="video/mp4" />
+                <source src="/media/WhatsApp Video 2025-10-29 at 7.24.14 PM.mp4" type="video/mp4" />
               </video>
             </div>
           </div>

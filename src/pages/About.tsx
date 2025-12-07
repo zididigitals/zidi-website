@@ -93,17 +93,17 @@ export default function About() {
 
       <section className="bg-gradient-hero">
         <div className="container max-w-6xl mx-auto px-6 py-16">
-          <div className="grid lg:grid-cols-[300px,1fr] gap-8 items-start">
+          <div className="grid lg:grid-cols-[400px,1fr] gap-8 items-start">
             {/* Founder Image */}
             <div className="lg:sticky lg:top-24">
               <div className="rounded-xl border border-border bg-card shadow-md p-4 hover:shadow-lg transition-shadow duration-300">
                 <img 
-                  src="/src/media/IMG-20251205-WA0008.jpg" 
+                  src="/media/IMG-20251205-WA0008.jpg" 
                   alt="Divyesh Bondapalli – Founder & CEO of Zidi Digital Solutions | Young Entrepreneur India" 
-                  className="w-full h-80 object-contain object-top rounded-lg"
+                  className="w-full h-96 object-contain object-top rounded-lg"
                   onError={(e) => {
                     e.currentTarget.style.display = 'none';
-                    e.currentTarget.parentElement!.innerHTML = '<div class="w-full h-64 rounded-lg bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center"><div class="text-4xl font-bold text-primary">DB</div></div>';
+                    e.currentTarget.parentElement!.innerHTML = '<div class="w-full h-96 rounded-lg bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center"><div class="text-4xl font-bold text-primary">DB</div></div>';
                   }}
                 />
                 {/* Quick Info */}
@@ -687,20 +687,20 @@ export default function About() {
                   <X className="h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
                 </button>
 
-                <div className="relative z-10 p-8 md:p-12 max-h-[85vh] overflow-y-auto">
+                <div className="relative z-10 p-4 md:p-6 max-h-[95vh] overflow-y-auto">
                   {selectedTeamMember === "divyesh" && (
                     <>
-                      <div className="flex justify-center mb-8">
-                        <div className="relative w-40 h-40 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 p-1 shadow-lg overflow-hidden">
-                          <div className="w-full h-full rounded-full bg-background flex items-center justify-center overflow-hidden">
+                      <div className="flex justify-center mb-6">
+                        <div className="relative w-[98vw] h-[98vw] max-w-[1200px] max-h-[1200px] rounded-3xl bg-gradient-to-br from-blue-500 to-cyan-500 p-2 shadow-2xl overflow-hidden">
+                          <div className="w-full h-full rounded-2xl bg-background flex items-center justify-center overflow-hidden">
                             <video 
                               autoPlay 
                               loop 
                               muted 
                               playsInline
-                              className="w-full h-full object-cover"
+                              className="w-full h-full object-contain scale-125"
                             >
-                              <source src="/src/media/team/CEO-ANI.mp4" type="video/mp4" />
+                              <source src="/media/team/CEO-ANI.mp4" type="video/mp4" />
                             </video>
                           </div>
                         </div>
@@ -758,16 +758,16 @@ export default function About() {
                   {selectedTeamMember === "ganesh" && (
                     <>
                       <div className="flex justify-center mb-8">
-                        <div className="relative w-40 h-40 rounded-full bg-gradient-to-br from-blue-500 to-teal-500 p-1 shadow-lg overflow-hidden">
-                          <div className="w-full h-full rounded-full bg-background flex items-center justify-center overflow-hidden">
+                        <div className="relative w-[95vw] h-[95vw] max-w-[900px] max-h-[900px] rounded-3xl bg-gradient-to-br from-blue-500 to-teal-500 p-2 shadow-2xl overflow-hidden">
+                          <div className="w-full h-full rounded-2xl bg-background flex items-center justify-center overflow-hidden">
                             <video 
                               autoPlay 
                               loop 
                               muted 
                               playsInline
-                              className="w-full h-full object-cover"
+                              className="w-full h-full object-contain scale-110"
                             >
-                              <source src="/src/media/team/CTO-ANI.mp4" type="video/mp4" />
+                              <source src="/media/team/CTO-ANI.mp4" type="video/mp4" />
                             </video>
                           </div>
                         </div>
@@ -825,16 +825,16 @@ export default function About() {
                   {selectedTeamMember === "neelambika" && (
                     <>
                       <div className="flex justify-center mb-8">
-                        <div className="relative w-40 h-40 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 p-1 shadow-lg overflow-hidden">
-                          <div className="w-full h-full rounded-full bg-background flex items-center justify-center overflow-hidden">
+                        <div className="relative w-[95vw] h-[95vw] max-w-[900px] max-h-[900px] rounded-3xl bg-gradient-to-br from-purple-500 to-pink-500 p-2 shadow-2xl overflow-hidden">
+                          <div className="w-full h-full rounded-2xl bg-background flex items-center justify-center overflow-hidden">
                             <video 
                               autoPlay 
                               loop 
                               muted 
                               playsInline
-                              className="w-full h-full object-cover"
+                              className="w-full h-full object-contain scale-110"
                             >
-                              <source src="/src/media/team/COO-ANI.mp4" type="video/mp4" />
+                              <source src="/media/team/COO-ANI.mp4" type="video/mp4" />
                             </video>
                           </div>
                         </div>
