@@ -595,7 +595,7 @@ export default function About() {
                   <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 p-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   <div className="relative w-40 h-40 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 p-1 transition-all duration-500 group-hover:scale-105 group-hover:shadow-2xl">
                     <div className="w-full h-full rounded-full bg-background flex items-center justify-center overflow-hidden">
-                      <img src="/src/media/team/ceo.jpg" alt="Divyesh Bondapalli" className="w-full h-full object-cover" />
+                      <img src="/media/team/ceo.jpg" alt="Divyesh Bondapalli" className="w-full h-full object-cover" />
                     </div>
                   </div>
                   <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-3 h-3 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -618,7 +618,7 @@ export default function About() {
                   <div className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 p-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   <div className="relative w-40 h-40 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 p-1 transition-all duration-500 group-hover:scale-105 group-hover:shadow-2xl">
                     <div className="w-full h-full rounded-full bg-background flex items-center justify-center overflow-hidden">
-                      <img src="/src/media/team/coo.jpg" alt="P. Neelambika" className="w-full h-full object-cover" />
+                      <img src="/media/team/coo.jpg" alt="P. Neelambika" className="w-full h-full object-cover" />
                     </div>
                   </div>
                   <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-3 h-3 bg-accent rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -639,9 +639,9 @@ export default function About() {
               <div className="relative mb-6 flex justify-center">
                 <div className="relative">
                   <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 to-teal-500 p-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  <div className="relative w-40 h-40 rounded-full bg-gradient-to-br from-blue-500 to-teal-500 p-1 transition-all duration-500 group-hover:scale-105 group-hover:shadow-2xl">
+                  <div className="relative w-40 h-40 rounded-full bg-gradient-to-br from-green-500 to-emerald-500 p-1 transition-all duration-500 group-hover:scale-105 group-hover:shadow-2xl">
                     <div className="w-full h-full rounded-full bg-background flex items-center justify-center overflow-hidden">
-                      <img src="/src/media/team/cto.jpg" alt="Ganesh Reddy" className="w-full h-full object-cover" />
+                      <img src="/media/team/cto.jpg" alt="Ganesh Reddy" className="w-full h-full object-cover" />
                     </div>
                   </div>
                   <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-3 h-3 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -691,14 +691,14 @@ export default function About() {
                   {selectedTeamMember === "divyesh" && (
                     <>
                       <div className="flex justify-center mb-6">
-                        <div className="relative w-[98vw] h-[98vw] max-w-[1200px] max-h-[1200px] rounded-3xl bg-gradient-to-br from-blue-500 to-cyan-500 p-2 shadow-2xl overflow-hidden">
-                          <div className="w-full h-full rounded-2xl bg-background flex items-center justify-center overflow-hidden">
+                        <div className="relative w-[98vw] h-[98vw] max-w-[1200px] max-h-[1200px] rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-500 p-2 shadow-2xl overflow-hidden">
+                          <div className="w-full h-full rounded-xl bg-background flex items-center justify-center overflow-hidden">
                             <video 
                               autoPlay 
                               loop 
                               muted 
                               playsInline
-                              className="w-full h-full object-contain scale-125"
+                              className="w-full h-full object-cover"
                             >
                               <source src="/media/team/CEO-ANI.mp4" type="video/mp4" />
                             </video>
@@ -757,15 +757,15 @@ export default function About() {
 
                   {selectedTeamMember === "ganesh" && (
                     <>
-                      <div className="flex justify-center mb-8">
-                        <div className="relative w-[95vw] h-[95vw] max-w-[900px] max-h-[900px] rounded-3xl bg-gradient-to-br from-blue-500 to-teal-500 p-2 shadow-2xl overflow-hidden">
-                          <div className="w-full h-full rounded-2xl bg-background flex items-center justify-center overflow-hidden">
+                      <div className="flex justify-center mb-6">
+                        <div className="relative w-[98vw] h-[98vw] max-w-[1200px] max-h-[1200px] rounded-2xl bg-gradient-to-br from-blue-500 to-teal-500 p-2 shadow-2xl overflow-hidden">
+                          <div className="w-full h-full rounded-xl bg-background flex items-center justify-center overflow-hidden">
                             <video 
                               autoPlay 
                               loop 
                               muted 
                               playsInline
-                              className="w-full h-full object-contain scale-110"
+                              className="w-full h-full object-cover"
                             >
                               <source src="/media/team/CTO-ANI.mp4" type="video/mp4" />
                             </video>
@@ -824,15 +824,15 @@ export default function About() {
 
                   {selectedTeamMember === "neelambika" && (
                     <>
-                      <div className="flex justify-center mb-8">
-                        <div className="relative w-[95vw] h-[95vw] max-w-[900px] max-h-[900px] rounded-3xl bg-gradient-to-br from-purple-500 to-pink-500 p-2 shadow-2xl overflow-hidden">
-                          <div className="w-full h-full rounded-2xl bg-background flex items-center justify-center overflow-hidden">
+                      <div className="flex justify-center mb-6">
+                        <div className="relative w-[98vw] h-[98vw] max-w-[1200px] max-h-[1200px] rounded-2xl bg-gradient-to-br from-purple-500 to-pink-500 p-2 shadow-2xl overflow-hidden">
+                          <div className="w-full h-full rounded-xl bg-background flex items-center justify-center overflow-hidden">
                             <video 
                               autoPlay 
                               loop 
                               muted 
                               playsInline
-                              className="w-full h-full object-contain scale-110"
+                              className="w-full h-full object-cover"
                             >
                               <source src="/media/team/COO-ANI.mp4" type="video/mp4" />
                             </video>
