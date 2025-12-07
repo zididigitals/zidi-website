@@ -687,18 +687,18 @@ export default function About() {
                   <X className="h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
                 </button>
 
-                <div className="relative z-10 p-4 md:p-6 max-h-[95vh] overflow-y-auto">
+                <div className="relative z-10 p-6 md:p-8 max-h-[90vh] overflow-y-auto">
                   {selectedTeamMember === "divyesh" && (
                     <>
                       <div className="flex justify-center mb-6">
-                        <div className="relative w-[98vw] h-[98vw] max-w-[1200px] max-h-[1200px] rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-500 p-2 shadow-2xl overflow-hidden">
-                          <div className="w-full h-full rounded-xl bg-background flex items-center justify-center overflow-hidden">
+                        <div className="relative w-full max-w-[350px] aspect-square rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 p-2 shadow-2xl overflow-hidden">
+                          <div className="w-full h-full rounded-full bg-background flex items-center justify-center overflow-hidden">
                             <video 
                               autoPlay 
                               loop 
                               muted 
                               playsInline
-                              className="w-full h-full object-cover"
+                              className="w-full h-full object-cover scale-110"
                             >
                               <source src="/media/team/CEO-ANI.mp4" type="video/mp4" />
                             </video>
@@ -758,14 +758,14 @@ export default function About() {
                   {selectedTeamMember === "ganesh" && (
                     <>
                       <div className="flex justify-center mb-6">
-                        <div className="relative w-[98vw] h-[98vw] max-w-[1200px] max-h-[1200px] rounded-2xl bg-gradient-to-br from-blue-500 to-teal-500 p-2 shadow-2xl overflow-hidden">
-                          <div className="w-full h-full rounded-xl bg-background flex items-center justify-center overflow-hidden">
+                        <div className="relative w-full max-w-[350px] aspect-square rounded-full bg-gradient-to-br from-blue-500 to-teal-500 p-2 shadow-2xl overflow-hidden">
+                          <div className="w-full h-full rounded-full bg-background flex items-center justify-center overflow-hidden">
                             <video 
                               autoPlay 
                               loop 
                               muted 
                               playsInline
-                              className="w-full h-full object-cover"
+                              className="w-full h-full object-cover scale-110"
                             >
                               <source src="/media/team/CTO-ANI.mp4" type="video/mp4" />
                             </video>
@@ -825,14 +825,14 @@ export default function About() {
                   {selectedTeamMember === "neelambika" && (
                     <>
                       <div className="flex justify-center mb-6">
-                        <div className="relative w-[98vw] h-[98vw] max-w-[1200px] max-h-[1200px] rounded-2xl bg-gradient-to-br from-purple-500 to-pink-500 p-2 shadow-2xl overflow-hidden">
-                          <div className="w-full h-full rounded-xl bg-background flex items-center justify-center overflow-hidden">
+                        <div className="relative w-full max-w-[350px] aspect-square rounded-full bg-gradient-to-br from-purple-500 to-pink-500 p-2 shadow-2xl overflow-hidden">
+                          <div className="w-full h-full rounded-full bg-background flex items-center justify-center overflow-hidden">
                             <video 
                               autoPlay 
                               loop 
                               muted 
                               playsInline
-                              className="w-full h-full object-cover"
+                              className="w-full h-full object-cover scale-110"
                             >
                               <source src="/media/team/COO-ANI.mp4" type="video/mp4" />
                             </video>
