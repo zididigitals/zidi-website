@@ -1,67 +1,7 @@
 import { useSEO } from "@/hooks/useSEO";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Globe, Megaphone } from "lucide-react";
 import { Link } from "react-router-dom";
-
-const projects = [
-  {
-    id: 1,
-    name: "Pixxel 8",
-    description: "A cutting-edge digital platform designed with modern UI/UX principles and optimized for seamless user engagement.",
-    services: ["Web Design", "Digital Marketing", "UI/UX Development"],
-    icon: Globe,
-    color: "from-blue-500 to-cyan-500",
-    logo: "/media/projects/pixel.jpg",
-    highlights: [
-      "Responsive Design",
-      "SEO Optimized",
-      "Performance Focused"
-    ]
-  },
-  {
-    id: 2,
-    name: "Collabo",
-    description: "A collaborative workspace solution featuring intuitive design and comprehensive digital marketing strategy to drive user adoption.",
-    services: ["Web Design", "Digital Marketing", "Brand Strategy"],
-    icon: Megaphone,
-    color: "from-purple-500 to-pink-500",
-    logo: "/media/projects/collabo.jpg",
-    highlights: [
-      "User-Centric Design",
-      "Marketing Campaign",
-      "Community Building"
-    ]
-  },
-  {
-    id: 3,
-    name: "Visa Now",
-    description: "Professional visa services platform with streamlined user experience and targeted digital marketing to reach global audiences.",
-    services: ["Web Design", "Digital Marketing", "User Experience"],
-    icon: Globe,
-    color: "from-green-500 to-emerald-500",
-    logo: "/media/projects/visa now.jpg",
-    highlights: [
-      "Multi-language Support",
-      "Conversion Optimized",
-      "Mobile First"
-    ]
-  },
-  {
-    id: 4,
-    name: "Ramky Infra",
-    description: "Enterprise infrastructure solutions website showcasing projects with professional design and strategic digital marketing initiatives.",
-    services: ["Web Design", "Digital Marketing", "Corporate Branding"],
-    icon: Globe,
-    color: "from-orange-500 to-red-500",
-    logo: "/media/projects/ramky.jpg",
-    highlights: [
-      "Enterprise Grade",
-      "Portfolio Showcase",
-      "Lead Generation"
-    ]
-  }
-];
+import { Card, CardHeader, CardTitle } from "@/components/ui/card";
+import { Globe, Megaphone } from "lucide-react";
 
 export default function Projects() {
   useSEO({
@@ -101,79 +41,72 @@ export default function Projects() {
         </p>
       </header>
 
-      {/* Projects Grid */}
+      {/* Projects Grid - gradient header + logo, title only */}
       <section className="grid md:grid-cols-2 gap-8 mb-16">
-        {projects.map((project) => {
-          const Icon = project.icon;
-          return (
-            <Card 
-              key={project.id} 
-              className="group overflow-hidden transition-all duration-300 hover:shadow-xl hover:border-primary/50"
-            >
-              {/* Creative Header with Logo */}
-              <div className={`relative h-40 bg-gradient-to-r ${project.color} opacity-90 group-hover:opacity-100 transition-opacity overflow-hidden flex items-center justify-center`}>
-                {/* Background Pattern */}
-                <div className="absolute inset-0 opacity-10 group-hover:opacity-20 transition-opacity">
-                  <Icon className="h-32 w-32 absolute -right-8 -top-8 text-white/30" />
-                </div>
-                
-                {/* Logo Container */}
-                <div className="relative z-10 flex items-center justify-center">
-                  <div className="relative">
-                    <div className="absolute inset-0 bg-white/20 blur-xl rounded-full scale-150"></div>
-                    <img 
-                      src={project.logo} 
-                      alt={project.name}
-                      className="h-24 w-24 object-contain rounded-lg shadow-lg relative z-10 bg-white/10 p-2 backdrop-blur-sm border border-white/20"
-                      onError={(e) => {
-                        e.currentTarget.style.display = 'none';
-                      }}
-                    />
+        {(() => {
+          const projects = [
+            {
+              id: 1,
+              name: "Pixxel 8",
+              logo: "/media/projects/pixel.jpg",
+              color: "from-blue-500 to-cyan-500",
+              icon: Globe
+            },
+            {
+              id: 2,
+              name: "Collabo",
+              logo: "/media/projects/collabo.jpg",
+              color: "from-purple-500 to-pink-500",
+              icon: Megaphone
+            },
+            {
+              id: 3,
+              name: "Visa Now",
+              logo: "/media/projects/visa now.jpg",
+              color: "from-green-500 to-emerald-500",
+              icon: Globe
+            },
+            {
+              id: 4,
+              name: "Ramky Infra",
+              logo: "/media/projects/ramky.jpg",
+              color: "from-orange-500 to-red-500",
+              icon: Globe
+            }
+          ];
+          return projects.map((project) => {
+            const Icon = project.icon;
+            return (
+              <Card key={project.id} className="group overflow-hidden transition-all duration-300 hover:shadow-xl hover:border-primary/50">
+                {/* Gradient Header with Logo */}
+                <div className={`relative h-40 bg-gradient-to-r ${project.color} opacity-90 group-hover:opacity-100 transition-opacity overflow-hidden flex items-center justify-center`}>
+                  {/* Faint Background Icon */}
+                  <div className="absolute inset-0 opacity-10 group-hover:opacity-20 transition-opacity">
+                    <Icon className="h-32 w-32 absolute -right-8 -top-8 text-white/30" />
+                  </div>
+                  {/* Logo */}
+                  <div className="relative z-10 flex items-center justify-center">
+                    <div className="relative">
+                      <div className="absolute inset-0 bg-white/20 blur-xl rounded-full scale-150"></div>
+                      <img
+                        src={project.logo}
+                        alt={project.name}
+                        className="h-24 w-24 object-contain rounded-lg shadow-lg relative z-10 bg-white/10 p-2 backdrop-blur-sm border border-white/20"
+                        onError={(e) => {
+                          e.currentTarget.style.display = 'none';
+                        }}
+                      />
+                    </div>
                   </div>
                 </div>
-              </div>
-
-              {/* Content */}
-              <CardHeader>
-                <CardTitle className="text-2xl">{project.name}</CardTitle>
-              </CardHeader>
-
-              <CardContent className="space-y-4">
-                {/* Description */}
-                <p className="text-muted-foreground leading-relaxed">
-                  {project.description}
-                </p>
-
-                {/* Services Badges */}
-                <div className="flex flex-wrap gap-2">
-                  {project.services.map((service) => (
-                    <Badge 
-                      key={service} 
-                      variant="secondary"
-                      className="bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
-                    >
-                      {service}
-                    </Badge>
-                  ))}
-                </div>
-
-                {/* Highlights */}
-                <div className="pt-2 border-t">
-                  <p className="text-sm font-semibold text-foreground mb-2">Key Highlights:</p>
-                  <ul className="space-y-1">
-                    {project.highlights.map((highlight) => (
-                      <li key={highlight} className="text-sm text-muted-foreground flex items-center gap-2">
-                        <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-                        {highlight}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-              </CardContent>
-            </Card>
-          );
-        })}
+                {/* Title only (no description/badges/highlights) */}
+                <CardHeader className="items-center">
+                  <CardTitle className="text-2xl text-center">{project.name}</CardTitle>
+                </CardHeader>
+              </Card>
+            );
+          });
+        })()}
       </section>
 
       {/* CTA Section */}
