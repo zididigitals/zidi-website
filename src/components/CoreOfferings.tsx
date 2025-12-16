@@ -1,8 +1,10 @@
-import { ArrowRight, Package, Settings, Target, GraduationCap, CheckCircle2, Building2, Rocket, TrendingUp, Users2 } from "lucide-react";
+import { ArrowRight, Package, Settings, Target, GraduationCap, CheckCircle2, Building2, Rocket, TrendingUp, Users2, Briefcase } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { useNavigate } from "react-router-dom";
 
 export const CoreOfferings = () => {
+  const navigate = useNavigate();
   const offerings = [
     {
       icon: Package,
@@ -10,7 +12,8 @@ export const CoreOfferings = () => {
       subtitle: "Ready-to-Deploy Software Products",
       description: "Enterprise-grade software solutions designed to accelerate your business operations with minimal setup time and maximum efficiency.",
       features: ["SaaS Platforms", "Mobile Applications", "E-commerce Solutions", "Business Automation"],
-      ctaText: "Explore Products"
+      ctaText: "Explore Products",
+      href: "/products"
     },
     {
       icon: Settings,
@@ -18,23 +21,35 @@ export const CoreOfferings = () => {
       subtitle: "Custom Development & Consulting",
       description: "Tailored development services built from the ground up to meet your unique business requirements with full-stack expertise.",
       features: ["Custom Web Development", "Mobile App Development", "Cloud Solutions", "Technical Consulting"],
-      ctaText: "Get Custom Solution"
-    },
-    {
-      icon: Target,
-      title: "Digital Marketing",
-      subtitle: "Data-Driven Growth Strategies", 
-      description: "Strategic marketing campaigns that convert prospects into customers using advanced analytics and automation technologies.",
-      features: ["SEO & Content Strategy", "Social Media Management", "PPC Advertising", "Performance Analytics"],
-      ctaText: "Boost Your Growth"
+      ctaText: "Get Custom Solution",
+      href: "/custom-solutions"
     },
     {
       icon: GraduationCap,
+      title: "Training",
+      subtitle: "Job-Ready Skill Programs", 
+      description: "Structured training in development, design, and marketing with real projects, assessments, and certifications to make you job-ready.",
+      features: ["Full-Stack Bootcamps", "UI/UX Design Workshops", "Digital Marketing Mastery", "Interview Prep & Mentorship"],
+      ctaText: "Explore Training",
+      href: "/services"
+    },
+    {
+      icon: Briefcase,
       title: "Internship Opportunities",
       subtitle: "Professional Career Development",
-      description: "Comprehensive training programs with real-world project experience, mentorship, and industry connections to launch your tech career.",
-      features: ["Full-Stack Development", "Digital Marketing Training", "Professional Workshops", "Career Mentorship"],
-      ctaText: "Apply for Program"
+      description: "Comprehensive internship programs with real-world project experience, mentorship, and industry exposure to launch your tech career.",
+      features: ["Full-Stack Development", "Digital Marketing", "Professional Workshops", "Career Mentorship"],
+      ctaText: "Apply for Program",
+      href: "/internship"
+    },
+    {
+      icon: Target,
+      title: "Consultancy",
+      subtitle: "Strategy, Audits & Advisory", 
+      description: "Expert guidance on product strategy, technical architecture, and go-to-market—backed by hands-on experience and measurable outcomes.",
+      features: ["Product & Tech Strategy", "Architecture Reviews", "Process & Cost Optimization", "Go‑to‑Market Advisory"],
+      ctaText: "Book Consultancy",
+      href: "/consultancy"
     }
   ];
 
@@ -63,12 +78,14 @@ export const CoreOfferings = () => {
 
         {/* Core Offerings Grid */}
         <div className="grid lg:grid-cols-2 gap-8 mb-20">
-          {offerings.map((offering, index) => (
-            <Card 
-              key={index} 
-              className="bg-card border-border hover:border-primary/20 transition-all duration-300 transform hover:scale-[1.02] hover:shadow-lg animate-scale-in group" 
-              style={{animationDelay: `${index * 150}ms`}}
-            >
+          {offerings.map((offering, index) => {
+            const isLast = index === offerings.length - 1;
+            return (
+              <Card 
+                key={index} 
+                className={`bg-card border-border hover:border-primary/20 transition-all duration-300 transform hover:scale-[1.02] hover:shadow-lg animate-scale-in group ${isLast ? 'lg:col-span-2 max-w-2xl mx-auto' : ''}`} 
+                style={{animationDelay: `${index * 150}ms`}}
+              >
               <CardContent className="p-8">
                 {/* Header */}
                 <div className="flex items-start space-x-4 mb-6">
@@ -100,13 +117,15 @@ export const CoreOfferings = () => {
                 <Button 
                   size="lg" 
                   className="w-full bg-gradient-primary hover:opacity-90 text-white border-0 font-medium rounded-lg transition-all duration-300 group-hover:shadow-primary"
+                  onClick={() => offering.href && navigate(offering.href)}
                 >
                   {offering.ctaText}
                   <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
                 </Button>
               </CardContent>
-            </Card>
-          ))}
+              </Card>
+            );
+          })}
         </div>
 
         {/* Trust Indicators */}

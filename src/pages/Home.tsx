@@ -40,6 +40,48 @@ export default function Home() {
           <CardContent className="text-sm text-muted-foreground">From discovery to delivery</CardContent>
         </Card>
       </section>
+
+      {/* Floating Projects Marquee */}
+      <section className="mt-16">
+        <div className="flex items-center justify-between mb-4">
+          <h2 className="text-xl md:text-2xl font-semibold">Recent Projects</h2>
+          <Link to="/projects" className="text-primary text-sm font-medium hover:underline">View all</Link>
+        </div>
+        {(() => {
+          const projects = [
+            { src: "/media/projects/collabo.jpg", name: "Collabo" },
+            { src: "/media/projects/pixel.jpg", name: "Pixel8" },
+            { src: "/media/projects/ramky.jpg", name: "Ramky Infra and Developers pvt ltd " },
+            { src: "/media/projects/visa%20now.jpg", name: "Visa Now" },
+          ];
+          const track = [...projects, ...projects];
+          return (
+            <div className="group marquee rounded-xl border border-border bg-secondary/50 p-3">
+              <div className="marquee-track">
+                {track.map((p, i) => (
+                  <div key={`${p.name}-${i}`} className="flex-shrink-0 w-56 md:w-64">
+                    <div className="rounded-lg bg-card border border-border shadow-sm overflow-hidden">
+                      <img
+                        src={p.src}
+                        alt={`${p.name} project preview`}
+                        className="w-full h-36 md:h-40 object-cover"
+                        onError={(e) => {
+                          e.currentTarget.style.display = 'none';
+                          const parent = e.currentTarget.parentElement as HTMLElement;
+                          parent.innerHTML = `<div class='w-full h-36 md:h-40 bg-gradient-to-br from-primary/15 to-accent/15 flex items-center justify-center'><span class='text-sm md:text-base font-medium text-muted-foreground'>${p.name}</span></div>`;
+                        }}
+                      />
+                      <div className="px-3 py-2 text-center">
+                        <div className="text-xs md:text-sm font-medium text-foreground">{p.name}</div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          );
+        })()}
+      </section>
     </main>
   );
 }

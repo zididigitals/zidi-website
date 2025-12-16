@@ -1,11 +1,28 @@
 import { useSEO } from "@/hooks/useSEO";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Quote, Award, Rocket, Calendar, TrendingUp, Target, Users, Lightbulb, Code, Briefcase, Linkedin, Mail, ChevronDown, ChevronUp, ExternalLink, X } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function About() {
   const [isExpanded, setIsExpanded] = useState(false);
   const [selectedTeamMember, setSelectedTeamMember] = useState<string | null>(null);
+  const modalRef = useRef<HTMLDivElement | null>(null);
+
+  // When modal opens: lock background scroll, focus modal, and ensure it's in view
+  useEffect(() => {
+    if (selectedTeamMember) {
+      const prevOverflow = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
+      // Focus and scroll into view
+      setTimeout(() => {
+        modalRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+        modalRef.current?.focus();
+      }, 0);
+      return () => {
+        document.body.style.overflow = prevOverflow;
+      };
+    }
+  }, [selectedTeamMember]);
 
   useSEO({
     title: "About Divyesh Bondapalli – Founder of Zidi Digital Solutions | Our Journey",
@@ -65,13 +82,13 @@ export default function About() {
 
   return (
     <main>
-      <section className="container max-w-6xl mx-auto px-6 py-16">
+      <section className="container max-w-6xl mx-auto px-4 md:px-6 py-12 md:py-16">
         <header className="max-w-3xl">
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight">About Zidi Digital Solutions</h1>
-          <p className="text-muted-foreground mt-4">We are a product + service technology company helping startups to enterprises launch, scale, and win in the digital era.</p>
+          <h1 className="text-3xl md:text-5xl font-bold tracking-tight">About Zidi Digital Solutions</h1>
+          <p className="text-sm md:text-base text-muted-foreground mt-3 md:mt-4">We are a product + service technology company helping startups to enterprises launch, scale, and win in the digital era.</p>
         </header>
 
-        <div className="mt-12 grid md:grid-cols-2 gap-8">
+        <div className="mt-8 md:mt-12 grid md:grid-cols-2 gap-6 md:gap-8">
           <Card className="shadow-md">
             <CardHeader>
               <CardTitle>Our Mission</CardTitle>
@@ -92,18 +109,18 @@ export default function About() {
       </section>
 
       <section className="bg-gradient-hero">
-        <div className="container max-w-6xl mx-auto px-6 py-16">
-          <div className="grid lg:grid-cols-[400px,1fr] gap-8 items-start">
+        <div className="container max-w-6xl mx-auto px-4 md:px-6 py-12 md:py-16">
+          <div className="grid lg:grid-cols-[360px,1fr] gap-6 md:gap-8 items-start">
             {/* Founder Image */}
             <div className="lg:sticky lg:top-24">
               <div className="rounded-xl border border-border bg-card shadow-md p-4 hover:shadow-lg transition-shadow duration-300">
                 <img 
                   src="/media/IMG-20251205-WA0008.jpg" 
                   alt="Divyesh Bondapalli – Founder & CEO of Zidi Digital Solutions | Young Entrepreneur India" 
-                  className="w-full h-96 object-contain object-top rounded-lg"
+                  className="w-full h-80 md:h-96 object-contain object-top rounded-lg"
                   onError={(e) => {
                     e.currentTarget.style.display = 'none';
-                    e.currentTarget.parentElement!.innerHTML = '<div class="w-full h-96 rounded-lg bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center"><div class="text-4xl font-bold text-primary">DB</div></div>';
+                    e.currentTarget.parentElement!.innerHTML = '<div class="w-full h-80 md:h-96 rounded-lg bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center"><div class="text-3xl md:text-4xl font-bold text-primary">DB</div></div>';
                   }}
                 />
                 {/* Quick Info */}
@@ -121,12 +138,12 @@ export default function About() {
             </div>
 
             {/* Founder Content */}
-            <div className="space-y-6">
+            <div className="space-y-5 md:space-y-6">
               {/* Brief Overview */}
               <Card className="shadow-md">
                 <CardHeader>
                   <div className="flex items-center justify-between">
-                    <CardTitle className="text-2xl bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                    <CardTitle className="text-xl md:text-2xl bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                       Mr. Divyesh Bondapalli
                     </CardTitle>
                     <div className="flex items-center space-x-1">
@@ -134,19 +151,19 @@ export default function About() {
                       <span className="text-xs text-success font-medium">Active</span>
                     </div>
                   </div>
-                  <p className="text-lg text-primary font-medium">Founder & CEO</p>
-                  <p className="text-sm text-muted-foreground italic">Also known as Mr. Div</p>
+                  <p className="text-base md:text-lg text-primary font-medium">Founder & CEO</p>
+                  <p className="text-xs md:text-sm text-muted-foreground italic">Also known as Mr. Div</p>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
-                    <p className="text-muted-foreground leading-relaxed">
+                    <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
                       A young and dynamic entrepreneur driven by innovation, technology, and a passion for creating digital excellence. 
                       Founded Zidi Digital Solutions in 2022 while pursuing B.Tech in Computer Science, transforming a student project 
                       into one of the fastest-growing digital companies committed to shaping the future of businesses and careers across industries.
                     </p>
                     
                     <div className="flex flex-wrap gap-2">
-                      <span className="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium">
+                      <span className="inline-flex items-center px-2.5 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium">
                         <Lightbulb className="h-3 w-3 mr-1" /> Visionary Leader
                       </span>
                       <span className="inline-flex items-center px-3 py-1 rounded-full bg-accent/10 text-accent text-xs font-medium">
@@ -162,7 +179,7 @@ export default function About() {
                       onClick={() => setIsExpanded(!isExpanded)}
                       className="flex items-center space-x-2 text-primary hover:text-primary/80 transition-colors font-medium text-sm group"
                     >
-                      <span>{isExpanded ? 'Show Less' : 'Show More'}</span>
+                      <span className="text-xs md:text-sm">{isExpanded ? 'Show Less' : 'Show More'}</span>
                       {isExpanded ? (
                         <ChevronUp className="h-4 w-4 group-hover:translate-y-[-2px] transition-transform" />
                       ) : (
@@ -444,7 +461,7 @@ export default function About() {
                 </div>
                 
                 {/* Timeline Dot */}
-                <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary rounded-full border-4 border-background shadow-lg order-1 md:order-2 -translate-x-1/2 md:translate-x-0">
+                <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary rounded-full border-4 border-background shadow-lg order-1 md:order-2 md:translate-x-0">
                   <div className="absolute inset-0 bg-primary rounded-full animate-ping"></div>
                 </div>
                 
@@ -456,7 +473,7 @@ export default function About() {
                 <div className="flex-1 order-2 md:order-1"></div>
                 
                 {/* Timeline Dot */}
-                <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-accent rounded-full border-4 border-background shadow-lg order-1 md:order-2 -translate-x-1/2 md:translate-x-0">
+                <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-accent rounded-full border-4 border-background shadow-lg order-1 md:order-2 md:translate-x-0">
                   <div className="absolute inset-0 bg-accent rounded-full animate-ping"></div>
                 </div>
                 
@@ -512,7 +529,7 @@ export default function About() {
                 </div>
                 
                 {/* Timeline Dot */}
-                <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary rounded-full border-4 border-background shadow-lg order-1 md:order-2 -translate-x-1/2 md:translate-x-0">
+                <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary rounded-full border-4 border-background shadow-lg order-1 md:order-2 md:translate-x-0">
                   <div className="absolute inset-0 bg-primary rounded-full animate-ping"></div>
                 </div>
                 
@@ -524,7 +541,7 @@ export default function About() {
                 <div className="flex-1 order-2 md:order-1"></div>
                 
                 {/* Timeline Dot */}
-                <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-accent rounded-full border-4 border-background shadow-lg order-1 md:order-2 -translate-x-1/2 md:translate-x-0">
+                <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-accent rounded-full border-4 border-background shadow-lg order-1 md:order-2 md:translate-x-0">
                   <div className="absolute inset-0 bg-accent rounded-full animate-ping"></div>
                 </div>
                 
@@ -673,9 +690,16 @@ export default function About() {
       {/* Portfolio Panel Modal */}
       {selectedTeamMember && (
         <>
-          <div className="fixed inset-0 z-40 bg-black/40 backdrop-blur-sm transition-opacity duration-300 animate-fade-in" onClick={() => setSelectedTeamMember(null)}></div>
+          <div className="fixed inset-0 z-40 bg-black/40 backdrop-blur-sm transition-opacity duration-300 animate-fade-in"></div>
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4 overflow-y-auto">
-            <div className="relative w-full max-w-2xl animate-scale-up my-8" onClick={(e) => e.stopPropagation()}>
+            <div
+              ref={modalRef}
+              role="dialog"
+              aria-modal="true"
+              tabIndex={-1}
+              className="relative w-full max-w-2xl animate-scale-up my-8 outline-none"
+              onClick={(e) => e.stopPropagation()}
+            >
               <div className="relative bg-background/80 backdrop-blur-xl border border-white/10 rounded-3xl shadow-2xl overflow-hidden">
                 <div className={`absolute inset-0 ${selectedTeamMember === "divyesh" ? "bg-gradient-to-br from-blue-500/5 to-cyan-500/5" : selectedTeamMember === "ganesh" ? "bg-gradient-to-br from-blue-500/5 to-teal-500/5" : "bg-gradient-to-br from-purple-500/5 to-pink-500/5"} pointer-events-none`}></div>
                 
@@ -691,8 +715,8 @@ export default function About() {
                   {selectedTeamMember === "divyesh" && (
                     <>
                       <div className="flex justify-center mb-8">
-                        <div className="relative w-40 h-40 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 p-1 shadow-lg overflow-hidden">
-                          <div className="w-full h-full rounded-full bg-background flex items-center justify-center overflow-hidden">
+                        <div className="relative w-56 h-36 rounded-[9999px] rotate-180 bg-gradient-to-br from-blue-500 to-cyan-500 p-1 shadow-lg overflow-hidden">
+                          <div className="w-full h-full rounded-[9999px] -rotate-180 bg-background flex items-center justify-center overflow-hidden">
                             <video 
                               autoPlay 
                               loop 
@@ -758,8 +782,8 @@ export default function About() {
                   {selectedTeamMember === "ganesh" && (
                     <>
                       <div className="flex justify-center mb-8">
-                        <div className="relative w-40 h-40 rounded-full bg-gradient-to-br from-blue-500 to-teal-500 p-1 shadow-lg overflow-hidden">
-                          <div className="w-full h-full rounded-full bg-background flex items-center justify-center overflow-hidden">
+                        <div className="relative w-56 h-36 rounded-[9999px] rotate-180 bg-gradient-to-br from-blue-500 to-teal-500 p-1 shadow-lg overflow-hidden">
+                          <div className="w-full h-full rounded-[9999px] -rotate-180 bg-background flex items-center justify-center overflow-hidden">
                             <video 
                               autoPlay 
                               loop 
@@ -825,8 +849,8 @@ export default function About() {
                   {selectedTeamMember === "neelambika" && (
                     <>
                       <div className="flex justify-center mb-8">
-                        <div className="relative w-40 h-40 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 p-1 shadow-lg overflow-hidden">
-                          <div className="w-full h-full rounded-full bg-background flex items-center justify-center overflow-hidden">
+                        <div className="relative w-56 h-36 rounded-[9999px] rotate-180 bg-gradient-to-br from-purple-500 to-pink-500 p-1 shadow-lg overflow-hidden">
+                          <div className="w-full h-full rounded-[9999px] -rotate-180 bg-background flex items-center justify-center overflow-hidden">
                             <video 
                               autoPlay 
                               loop 

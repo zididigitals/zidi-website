@@ -141,6 +141,13 @@ All colors MUST be HSL for consistency and theming support.
 
   body {
     @apply bg-background text-foreground scroll-smooth;
+    /* Attractive ambient gradient background */
+    background-image:
+      radial-gradient(1200px 600px at 20% -20%, hsl(215 90% 50% / 0.12), transparent 60%),
+      radial-gradient(800px 500px at 80% -10%, hsl(280 85% 60% / 0.12), transparent 60%),
+      radial-gradient(900px 500px at 50% -30%, hsl(155 65% 45% / 0.10), transparent 60%);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
   }
 }
 
@@ -185,6 +192,21 @@ All colors MUST be HSL for consistency and theming support.
 
   .animation-delay-2000 {
     animation-delay: 2s;
+  }
+
+  /* Continuous marquee scrolling */
+  .marquee {
+    overflow: hidden;
+    position: relative;
+  }
+  .marquee-track {
+    display: flex;
+    gap: 1rem;
+    will-change: transform;
+    animation: marquee 20s linear infinite;
+  }
+  .group:hover .marquee-track {
+    animation-play-state: paused;
   }
 
   .animation-delay-4000 {
@@ -260,6 +282,16 @@ All colors MUST be HSL for consistency and theming support.
     to {
       opacity: 1;
       transform: scale(1);
+    }
+  }
+
+  /* Marquee keyframes: duplicate content, slide by 50% */
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
     }
   }
 }

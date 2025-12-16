@@ -22,22 +22,19 @@ const Preloader = ({ onComplete }: PreloaderProps) => {
   if (!isLoading) return null;
 
   return (
-    <div className="fixed inset-0 z-50 bg-background flex items-center justify-center">
-      {/* Content */}
-      <div className="relative z-10 text-center">
-        {/* Logo Only */}
-        <div className="flex justify-center">
-          <video 
-            autoPlay 
-            loop 
-            muted 
-            playsInline 
-            className="h-screen w-auto object-contain"
-          >
-            <source src="/media/WhatsApp Video 2025-10-29 at 7.24.14 PM.mp4" type="video/mp4" />
-          </video>
-        </div>
-      </div>
+    <div
+      className="fixed inset-0 z-[9999] bg-white flex items-center justify-center"
+      style={{ backgroundImage: "none" }}
+    >
+      {/* Logo Only (no background video) */}
+      <img
+        src="/logo.jpeg"
+        alt="Zidi Digital Solutions"
+        className="h-32 md:h-48 w-auto animate-scale-up"
+        onError={(e) => {
+          (e.currentTarget as HTMLImageElement).style.display = 'none';
+        }}
+      />
     </div>
   );
 };
