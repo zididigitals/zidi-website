@@ -1,6 +1,6 @@
 import { useSEO } from "@/hooks/useSEO";
 import { Link } from "react-router-dom";
-import { Card, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Globe, Megaphone } from "lucide-react";
 
 export default function Projects() {
@@ -47,31 +47,51 @@ export default function Projects() {
           const projects = [
             {
               id: 1,
-              name: "Pixxel 8",
+              name: "Pixel8",
               logo: "/media/projects/pixel.jpg",
               color: "from-blue-500 to-cyan-500",
-              icon: Globe
+              icon: Globe,
+              blurbs: [
+                "A recent launch from our studio — crafted with care, speed, and polish.",
+                "Clean layouts and thoughtful details keep the experience light and intuitive.",
+                "Built with a focus on performance, accessibility, and long‑term maintainability."
+              ]
             },
             {
               id: 2,
               name: "Collabo",
               logo: "/media/projects/collabo.jpg",
               color: "from-purple-500 to-pink-500",
-              icon: Megaphone
+              icon: Megaphone,
+              blurbs: [
+                "An example of our crisp, minimal approach — simple, fast, and dependable.",
+                "Clear flows and sensible structure help users move without friction.",
+                "Shipped with modern standards, future‑friendly and easy to evolve."
+              ]
             },
             {
               id: 3,
               name: "Visa Now",
               logo: "/media/projects/visa now.jpg",
               color: "from-green-500 to-emerald-500",
-              icon: Globe
+              icon: Globe,
+              blurbs: [
+                "Built to feel effortless — thoughtful layouts, clean visuals, and smooth flows.",
+                "Attention to clarity and trust signals across every touchpoint.",
+                "Architecture designed for stable growth and consistent performance."
+              ]
             },
             {
               id: 4,
-              name: "Ramky Infra",
+              name: "Ranky",
               logo: "/media/projects/ramky.jpg",
               color: "from-orange-500 to-red-500",
-              icon: Globe
+              icon: Globe,
+              blurbs: [
+                "A clean and modern release — focused on clarity, performance, and details.",
+                "Balanced typography and spacing for a confident, approachable feel.",
+                "Engineered with reliable foundations and room to scale gracefully."
+              ]
             }
           ];
           return projects.map((project) => {
@@ -99,10 +119,19 @@ export default function Projects() {
                     </div>
                   </div>
                 </div>
-                {/* Title only (no description/badges/highlights) */}
+                {/* Title + short themed description */}
                 <CardHeader className="items-center">
                   <CardTitle className="text-2xl text-center">{project.name}</CardTitle>
                 </CardHeader>
+                <CardContent>
+                  <div className="space-y-2 text-center">
+                    {project.blurbs.map((line: string, i: number) => (
+                      <p key={i} className="text-muted-foreground text-sm leading-relaxed">
+                        {line}
+                      </p>
+                    ))}
+                  </div>
+                </CardContent>
               </Card>
             );
           });

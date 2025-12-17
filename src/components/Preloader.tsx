@@ -30,7 +30,7 @@ const Preloader = ({ onComplete }: PreloaderProps) => {
       <img
         src="/logo.jpeg"
         alt="Zidi Digital Solutions"
-        className="h-32 md:h-48 w-auto animate-scale-up"
+        className="h-40 md:h-48 lg:h-56 w-auto animate-scale-up"
         onError={(e) => {
           (e.currentTarget as HTMLImageElement).style.display = 'none';
         }}
