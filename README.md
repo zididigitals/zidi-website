@@ -32,9 +32,45 @@ cd <YOUR_PROJECT_NAME>
 # Step 3: Install the necessary dependencies.
 npm i
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Step 4: Set up environment variables
+# Copy .env.example to .env and fill in your actual EmailJS credentials
+cp .env.example .env
+# Edit .env with your actual values from https://dashboard.emailjs.com/
+
+# Step 5: Start the development server with auto-reloading and an instant preview.
 npm run dev
 ```
+
+## Environment Variables Setup
+
+This project uses EmailJS for the contact form. You need to set up the following environment variables:
+
+1. **Create a free EmailJS account**: https://dashboard.emailjs.com/
+2. **Create an Email Service** (e.g., Gmail, Outlook)
+3. **Create two Email Templates**:
+   - Customer auto-reply template
+   - Admin notification template
+4. **Copy `.env.example` to `.env`**:
+   ```sh
+   cp .env.example .env
+   ```
+5. **Fill in your actual values** in `.env`:
+   - `VITE_EMAILJS_PUBLIC_KEY` - Found in Account → API Keys
+   - `VITE_EMAILJS_SERVICE_ID` - Your email service ID
+   - `VITE_EMAILJS_TEMPLATE_ID` - Customer template ID
+   - `VITE_EMAILJS_ADMIN_TEMPLATE_ID` - Admin template ID
+
+6. **Restart the dev server** after creating `.env`
+
+### For Vercel Deployment
+
+Add the same environment variables in Vercel:
+1. Go to your project → Settings → Environment Variables
+2. Add all four `VITE_EMAILJS_*` variables
+3. Set scope to Production, Preview, and Development
+4. Redeploy your project
+
+**Note**: The `.env` file is in `.gitignore` and should never be committed to git for security reasons. Each team member needs to create their own `.env` file from `.env.example`.
 
 **Edit a file directly in GitHub**
 

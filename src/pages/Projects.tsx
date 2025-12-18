@@ -47,50 +47,56 @@ export default function Projects() {
           const projects = [
             {
               id: 1,
-              name: "Pixel8",
+              name: "Pixxel 8",
               logo: "/media/projects/pixel.jpg",
+              link: "https://pixxel8.com/",
               color: "from-blue-500 to-cyan-500",
               icon: Globe,
               blurbs: [
-                "A recent launch from our studio — crafted with care, speed, and polish.",
-                "Clean layouts and thoughtful details keep the experience light and intuitive.",
-                "Built with a focus on performance, accessibility, and long‑term maintainability."
+                "Self-service photo booth application with pixel-art aesthetic for events and kiosks.",
+                "Features webcam capture, live layout previews, pose suggestions, and instant printing.",
+                "Supports payment integration (Razorpay/Stripe) with white-label customization options.",
+                "Perfect for weddings, corporate events, birthday parties, and mall installations."
               ]
             },
             {
               id: 2,
-              name: "Collabo",
+              name: "Colabo",
               logo: "/media/projects/collabo.jpg",
+              link: "https://colabo.in/",
               color: "from-purple-500 to-pink-500",
               icon: Megaphone,
               blurbs: [
-                "An example of our crisp, minimal approach — simple, fast, and dependable.",
-                "Clear flows and sensible structure help users move without friction.",
-                "Shipped with modern standards, future‑friendly and easy to evolve."
+                "Innovative collaboration platform currently under active development.",
+                "Password-protected development environment ensuring secure feature rollout.",
+                "Designed for modern team workflows with future-ready architecture."
               ]
             },
             {
               id: 3,
               name: "Visa Now",
               logo: "/media/projects/visa now.jpg",
+              link: "https://visanowconsultancy.com/",
               color: "from-green-500 to-emerald-500",
               icon: Globe,
               blurbs: [
-                "Built to feel effortless — thoughtful layouts, clean visuals, and smooth flows.",
-                "Attention to clarity and trust signals across every touchpoint.",
-                "Architecture designed for stable growth and consistent performance."
+                "Your trusted pathway to study abroad - comprehensive visa consultancy services.",
+                "Expert guidance for international education opportunities and visa processing.",
+                "Professional consultancy helping students achieve their dream of studying overseas."
               ]
             },
             {
               id: 4,
-              name: "Ranky",
+              name: "Ramky Infra",
               logo: "/media/projects/ramky.jpg",
+              link: "https://www.ramkyinfra.com/home",
               color: "from-orange-500 to-red-500",
               icon: Globe,
               blurbs: [
-                "A clean and modern release — focused on clarity, performance, and details.",
-                "Balanced typography and spacing for a confident, approachable feel.",
-                "Engineered with reliable foundations and room to scale gracefully."
+                "Premium DTCP & RERA approved luxury plots and villas across Hyderabad.",
+                "Eco-friendly, IGBC certified projects with modern amenities and sustainable living.",
+                "Associated partner with DAMAC Dubai for prestigious projects including Cavalli and Elegance.",
+                "15+ years of excellence delivering 500+ happy families across ₹500Cr+ projects."
               ]
             }
           ];
@@ -108,14 +114,32 @@ export default function Projects() {
                   <div className="relative z-10 flex items-center justify-center">
                     <div className="relative">
                       <div className="absolute inset-0 bg-white/20 blur-xl rounded-full scale-150"></div>
-                      <img
-                        src={project.logo}
-                        alt={project.name}
-                        className="h-24 w-24 object-contain rounded-lg shadow-lg relative z-10 bg-white/10 p-2 backdrop-blur-sm border border-white/20"
-                        onError={(e) => {
-                          e.currentTarget.style.display = 'none';
-                        }}
-                      />
+                      {project.link ? (
+                        <a 
+                          href={project.link} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="block"
+                        >
+                          <img
+                            src={project.logo}
+                            alt={project.name}
+                            className="h-24 w-24 object-contain rounded-lg shadow-lg relative z-10 bg-white/10 p-2 backdrop-blur-sm border border-white/20 cursor-pointer hover:scale-110 transition-transform duration-300"
+                            onError={(e) => {
+                              e.currentTarget.style.display = 'none';
+                            }}
+                          />
+                        </a>
+                      ) : (
+                        <img
+                          src={project.logo}
+                          alt={project.name}
+                          className="h-24 w-24 object-contain rounded-lg shadow-lg relative z-10 bg-white/10 p-2 backdrop-blur-sm border border-white/20"
+                          onError={(e) => {
+                            e.currentTarget.style.display = 'none';
+                          }}
+                        />
+                      )}
                     </div>
                   </div>
                 </div>

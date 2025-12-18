@@ -38,14 +38,36 @@ export const ContactSection = () => {
 
     try {
       // EmailJS Configuration (from environment variables)
-      const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
-      const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-      const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-      const EMAILJS_ADMIN_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_ADMIN_TEMPLATE_ID;
+      const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY as string | undefined;
+      const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID as string | undefined;
+      const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string | undefined;
+      const EMAILJS_ADMIN_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_ADMIN_TEMPLATE_ID as string | undefined;
 
-      // Basic guard for missing envs
-      if (!EMAILJS_PUBLIC_KEY || !EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_ADMIN_TEMPLATE_ID) {
-        throw new Error("Missing EmailJS environment configuration");
+      // Guard for missing envs (common when .env not configured)
+      const missingKeys = [
+        ["VITE_EMAILJS_PUBLIC_KEY", EMAILJS_PUBLIC_KEY],
+        ["VITE_EMAILJS_SERVICE_ID", EMAILJS_SERVICE_ID],
+        ["VITE_EMAILJS_TEMPLATE_ID", EMAILJS_TEMPLATE_ID],
+        ["VITE_EMAILJS_ADMIN_TEMPLATE_ID", EMAILJS_ADMIN_TEMPLATE_ID],
+      ].filter(([_, v]) => !v).map(([k]) => k as string);
+
+      if (missingKeys.length) {
+        console.error("❌ EmailJS Setup Error");
+        console.error("Missing environment variables:", missingKeys);
+        console.error("📝 Local Development: Copy .env.example to .env and fill in your EmailJS credentials");
+        console.error("☁️  Vercel/Production: Add these in Dashboard → Settings → Environment Variables");
+        console.error("📖 See README.md for detailed setup instructions");
+        
+        const isProduction = import.meta.env.PROD;
+        toast({
+          title: "EmailJS Configuration Missing",
+          description: isProduction 
+            ? `Missing: ${missingKeys.join(", ")}. Add in Vercel → Settings → Environment Variables and redeploy.`
+            : `Missing: ${missingKeys.join(", ")}. Copy .env.example to .env and add your EmailJS credentials. See README.md for setup instructions.`,
+          variant: "destructive",
+        });
+        setIsSubmitting(false);
+        return;
       }
 
       // Initialize EmailJS
@@ -107,8 +129,15 @@ export const ContactSection = () => {
           message: ""
         });
       }
-    } catch (error) {
-      console.error("EmailJS Error:", error);
+    } catch (error: any) {
+      // Surface more detail in console, keep toast user-friendly
+      try {
+        const status = error?.status;
+        const text = error?.text || error?.message;
+        console.error("EmailJS Error:", { status, text, raw: error });
+      } catch (_) {
+        console.error("EmailJS Error:", error);
+      }
       toast({
         title: "❌ Failed to Send",
         description: "Please verify EmailJS keys and template variables, then try again. You can also contact us directly at zididigitals@gmail.com.",
