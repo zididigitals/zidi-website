@@ -28,7 +28,7 @@ const Preloader = ({ onComplete }: PreloaderProps) => {
     >
       {/* Logo Only (no background video) */}
       <img
-        src="/logo.jpeg"
+        src="/logo.png"
         alt="Zidi Digital Solutions"
         className="h-40 md:h-48 lg:h-56 w-auto animate-scale-up"
         onError={(e) => {
